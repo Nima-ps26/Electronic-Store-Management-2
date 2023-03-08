@@ -44,7 +44,7 @@ class FirstRoute extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
-              child: Text("Electronic Store", style: TextStyle(fontSize: 40, fontStyle: FontStyle.italic),),
+              child: Text("Electronic Store", style: TextStyle(fontSize: 30,),),
             ),
             SizedBox(
               height: 100, // <-- SEE HERE
@@ -54,7 +54,7 @@ class FirstRoute extends StatelessWidget {
               child: TextFormField(
                 decoration: const InputDecoration(
                   icon: const Icon(Icons.person),
-                  hintText: 'Enter your first name',
+                  hintText: 'Enter your name',
                   labelText: 'User Name',
                   border: OutlineInputBorder(),
                 ),
@@ -95,6 +95,10 @@ class FirstRoute extends StatelessWidget {
             new Container(
                 padding: const EdgeInsets.only(left: 150.0, top: 20.0),
                 child: new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
                   child: const Text('Login'),
         
         
@@ -158,11 +162,15 @@ class SecondRoute extends StatelessWidget {
               ),
           // ignore: prefer_const_constructors
           SizedBox(
-            height: 75, // <-- SEE HERE
+            height: 175, // <-- SEE HERE
           ),
           new Container(
               padding: const EdgeInsets.only(left: 150.0, top: 20.0),
               child: new ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
                 child: const Text('Customer'),
 
 
@@ -183,6 +191,10 @@ class SecondRoute extends StatelessWidget {
               new Container(
               padding: const EdgeInsets.only(left: 150.0, top: 20.0),
               child: new ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
                 child: const Text('Products'),
 
 
@@ -203,6 +215,10 @@ class SecondRoute extends StatelessWidget {
               new Container(
               padding: const EdgeInsets.only(left: 150.0, top: 20.0),
               child: new ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
                 child: const Text('Supplier'),
 
 
@@ -224,13 +240,17 @@ class SecondRoute extends StatelessWidget {
           new Container(
               padding: const EdgeInsets.only(left: 150.0, top: 20.0),
               child: new ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
                 child: const Text('Purchase'),
 
 
                 onPressed: () {
                    Navigator.push(  
               context,  
-              MaterialPageRoute(builder: (context) => FirstRoute()),  
+              MaterialPageRoute(builder: (context) => fifthRoute()),  
             );  
                   // It returns true if the form is valid, otherwise returns false
                   // if (_formKey.currentState!.validate()) {
@@ -360,11 +380,13 @@ class fourthRoute extends StatelessWidget {
         image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
       ),
     
+      
       child: Scaffold(  
 
 
       appBar: AppBar(  
-        title: Text('First Screen'),  
+        title: Text('Supplier'),  
+        backgroundColor: Colors.purple,
       ),  
       body: Center(  
          child: Container(
@@ -384,13 +406,13 @@ class fourthRoute extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(5.0),
-            child: Text("Supplier", style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),),
+            child: Text("Add the new Supplier", style: TextStyle(fontSize: 20,),),
           ),
           SizedBox(
             height: 10, // <-- SEE HERE
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(10.0),
             child: TextFormField(
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
@@ -407,10 +429,10 @@ class fourthRoute extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 5, // <-- SEE HERE
+            height: 1, // <-- SEE HERE
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextFormField(
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
@@ -427,10 +449,10 @@ class fourthRoute extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10, // <-- SEE HERE
+            height: 1, // <-- SEE HERE
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextFormField(
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
@@ -447,10 +469,10 @@ class fourthRoute extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10, // <-- SEE HERE
+            height: 1, // <-- SEE HERE
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextFormField(
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
@@ -467,10 +489,10 @@ class fourthRoute extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10, // <-- SEE HERE
+            height: 1, // <-- SEE HERE
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextFormField(
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
@@ -487,10 +509,10 @@ class fourthRoute extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10, // <-- SEE HERE
+            height: 1, // <-- SEE HERE
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextFormField(
               decoration: const InputDecoration(
                 icon: const Icon(Icons.person),
@@ -507,14 +529,19 @@ class fourthRoute extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 5, // <-- SEE HERE
+            height: 1, // <-- SEE HERE
           ),
        
         
           // ignore: unnecessary_new
           new Container(
               padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+              
               child: new ElevatedButton(
+                 style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
                 child: const Text('Add Supplier'),
 
 
@@ -538,6 +565,165 @@ class fourthRoute extends StatelessWidget {
     ));  
   }  
 }
+
+
+//supplier
+class fifthRoute extends StatelessWidget {  
+  @override  
+  Widget build(BuildContext context) {  
+    return Container (
+      decoration:BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
+      ),
+    
+      
+      child: Scaffold(  
+
+
+      appBar: AppBar(  
+        title: Text('Purchase'),  
+        backgroundColor: Colors.purple,
+      ),  
+      body: Center(  
+         child: Container(
+          decoration:BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
+      ),
+    
+        child: Column(
+          
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+                  // Container(
+                  //     child: Text("Login Page", style: TextStyle(fontSize: 20))),
+          // ignore: prefer_const_constructors
+          SizedBox(
+            height: 40, // <-- SEE HERE
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text("Purchase", style: TextStyle(fontSize: 20,),),
+          ),
+          SizedBox(
+            height: 10, // <-- SEE HERE
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                icon: const Icon(Icons.person),
+                hintText: 'Supplier id',
+                labelText: 'Supplier id',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 1, // <-- SEE HERE
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                icon: const Icon(Icons.person),
+                hintText: 'Item code',
+                labelText: 'Item code',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 1, // <-- SEE HERE
+          ),
+         
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                icon: const Icon(Icons.person),
+                hintText: 'Quantity',
+                labelText: 'Quantity',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 1, // <-- SEE HERE
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                icon: const Icon(Icons.person),
+                hintText: 'Amount',
+                labelText: 'Amount',
+                border: OutlineInputBorder(),
+              ),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 1, // <-- SEE HERE
+          ),
+         
+       
+        
+          // ignore: unnecessary_new
+          new Container(
+              padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+              
+              child: new ElevatedButton(
+                 style: ElevatedButton.styleFrom(
+                  primary: Colors.purple, // background
+                  onPrimary: Colors.white, // foreground
+  ),
+                child: const Text('Purchase Details'),
+
+
+                onPressed: () {
+                   Navigator.push(  
+              context,  
+              MaterialPageRoute(builder: (context) => SecondRoute()),  
+            );  
+                  // It returns true if the form is valid, otherwise returns false
+                  // if (_formKey.currentState!.validate()) {
+                  //   // If the form is valid, display a Snackbar.
+                  // }
+                },
+              )),
+                  
+        ],
+      ),
+       
+      ),  
+    )
+    ));  
+  }  
+}
+
 
 
 
