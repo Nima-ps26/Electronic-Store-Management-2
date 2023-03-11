@@ -1,3 +1,4 @@
+import 'package:esm/home_screen.dart';
 import 'package:flutter/material.dart';  
 
 void main() {  
@@ -158,100 +159,118 @@ class SecondRoute extends StatelessWidget {
           SizedBox(
             height: 175, // <-- SEE HERE
           ),
-          new Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 20.0),
-              child: new ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple, // background
-                  onPrimary: Colors.white, // foreground
-  ),
-                child: const Text('Customer'),
-
-
-                onPressed: () {
-                   Navigator.push(  
-              context,  
-              MaterialPageRoute(builder: (context) => seventhRoute()),  
-            );  
-                  // It returns true if the form is valid, otherwise returns false
-                  // if (_formKey.currentState!.validate()) {
-                  //   // If the form is valid, display a Snackbar.
-                  // }
-                },
-              )),
+          SizedBox(
+            height: 80,
+            child: new Container(
+                padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+                child: new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple, // background
+                    onPrimary: Colors.white, // foreground
+            ),
+                  child: const Text('Customer'),
+          
+          
+                  onPressed: () {
+                     Navigator.push(  
+                context,  
+                MaterialPageRoute(builder: (context) => seventhRoute()),  
+              );  
+                    // It returns true if the form is valid, otherwise returns false
+                    // if (_formKey.currentState!.validate()) {
+                    //   // If the form is valid, display a Snackbar.
+                    // }
+                  },
+                )),
+          ),
               SizedBox(
             height: 15, // <-- SEE HERE
           ),
-              new Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 20.0),
-              child: new ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple, // background
-                  onPrimary: Colors.white, // foreground
-  ),
-                child: const Text('Products'),
 
-
-                onPressed: () {
-                   Navigator.push(  
-              context,  
-              MaterialPageRoute(builder: (context) => sixthRoute()),  
-            );  
-                  // It returns true if the form is valid, otherwise returns false
-                  // if (_formKey.currentState!.validate()) {
-                  //   // If the form is valid, display a Snackbar.
-                  // }
-                },
-              )),
+              SizedBox(
+                height:80, //height of button
+               
+                
+                child: new Container(
+                 padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+                child: new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple, // background
+                    onPrimary: Colors.white, // foreground
+                    
+                ),
+                  child: const Text('Products'),
+              
+              
+                  onPressed: () {
+                     Navigator.push(  
+                context,  
+                MaterialPageRoute(builder: (context) => sixthRoute()),  
+                          );  
+                    // It returns true if the form is valid, otherwise returns false
+                    // if (_formKey.currentState!.validate()) {
+                    //   // If the form is valid, display a Snackbar.
+                    // }
+                  },
+                )),
+              ),
               SizedBox(
             height: 15, // <-- SEE HERE
           ),
-              new Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 20.0),
-              child: new ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple, // background
-                  onPrimary: Colors.white, // foreground
-  ),
-                child: const Text('Supplier'),
-
-
-                onPressed: () {
-                   Navigator.push(  
-              context,  
-              MaterialPageRoute(builder: (context) => fourthRoute()),  
-            );  
-                  // It returns true if the form is valid, otherwise returns false
-                  // if (_formKey.currentState!.validate()) {
-                  //   // If the form is valid, display a Snackbar.
-                  // }
-                },
-              )),
+              SizedBox(
+                height: 80,
+                child: new Container(
+                padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+                child: new ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple, // background
+                    onPrimary: Colors.white, // foreground
+                ),
+                  child: const Text('Supplier '),
+              
+              
+                  onPressed: () {
+                     Navigator.push(  
+                context,  
+                MaterialPageRoute(builder: (context) => HomeScreen()),  
+                          );  
+                    // It returns true if the form is valid, otherwise returns false
+                    // if (_formKey.currentState!.validate()) {
+                    //   // If the form is valid, display a Snackbar.
+                    // }
+                  },
+                )),
+              ),
               SizedBox(
             height: 15, // <-- SEE HERE
           ),
           // ignore: unnecessary_new
-          new Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 20.0),
-              child: new ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.purple, // background
-                  onPrimary: Colors.white, // foreground
-  ),
-                child: const Text('Purchase'),
-
-
-                onPressed: () {
-                   Navigator.push(  
-              context,  
-              MaterialPageRoute(builder: (context) => fifthRoute()),  
-            );  
-                  // It returns true if the form is valid, otherwise returns false
-                  // if (_formKey.currentState!.validate()) {
-                  //   // If the form is valid, display a Snackbar.
-                  // }
-                },
-              )),
+        
+           SizedBox(
+              height: 80,
+              child: new Container(
+                  padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+                  child: new ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.purple, // background
+                      onPrimary: Colors.white, // foreground
+              ),
+                    child: const Text('Purchase'),
+                      
+                      
+                    onPressed: () {
+                       Navigator.push(  
+                  context,  
+                  MaterialPageRoute(builder: (context) => fifthRoute()),  
+                );  
+                      // It returns true if the form is valid, otherwise returns false
+                      // if (_formKey.currentState!.validate()) {
+                      //   // If the form is valid, display a Snackbar.
+                      // }
+                    },
+                  )),
+            ),
+          
               SizedBox(
             height: 15, // <-- SEE HERE
           ),
@@ -694,7 +713,7 @@ class fifthRoute extends StatelessWidget {
                   primary: Colors.purple, // background
                   onPrimary: Colors.white, // foreground
   ),
-                child: const Text('Purchase Details'),
+                child: const Text('Generate bill'),
 
 
                 onPressed: () {
@@ -1098,53 +1117,3 @@ class seventhRoute extends StatelessWidget {
     ));  
   }  
 }
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
