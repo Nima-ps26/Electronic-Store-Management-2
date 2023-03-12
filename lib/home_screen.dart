@@ -27,13 +27,13 @@ void initstate() {
 
 //add data
 Future<void> _addData() async{
-  await SQLHelper.createData(_titleController.text, _descController.text);
+  await SQLHelper.createData(_businessController.text, _descController.text);
   _refreshData();
 }
 
 //update data
 Future<void> _updateData(int id) async{
-  await SQLHelper.createData(_titleController.text, _descController.text);
+  await SQLHelper.createData(_businessController.text, _descController.text);
   _refreshData();
 }
 
@@ -48,12 +48,12 @@ void _deleteData(int id) async {
 }
 
 
-final TextEditingController _titleController = TextEditingController();
+final TextEditingController _businessController = TextEditingController();
 final TextEditingController _descController = TextEditingController();
 void showBottomSheet(int? id) async{
   if(id!= null){
     final existingData = _allData.firstWhere((element) => element['id']==id);
-    _titleController.text = existingData['title'];
+    _businessController.text = existingData['business'];
     _descController.text = existingData['desc'];
   }
   showModalBottomSheet(
@@ -72,10 +72,10 @@ void showBottomSheet(int? id) async{
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextField(
-            controller: _titleController,
+            controller: _businessController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: "Title",
+              hintText: "Business Name",
 
             ),
           ),
@@ -99,7 +99,7 @@ void showBottomSheet(int? id) async{
                 if(id!=null) {
                   await _updateData(id);
                 }
-                _titleController.text="";
+                _businessController.text="";
                 _descController.text="";
 
                 Navigator.of(context).pop();
@@ -139,7 +139,7 @@ void showBottomSheet(int? id) async{
               title: Padding(
                 padding: EdgeInsets.symmetric(vertical: 5),
               child: Text(
-                _allData[index]['title'],
+                _allData[index]['business'],
                 style: TextStyle(
                   fontSize: 20,
                 ),
