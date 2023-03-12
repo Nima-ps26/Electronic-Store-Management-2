@@ -5,7 +5,13 @@ class SQLHelper{
     await database.execute("""CREATE TABLE data( 
       id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
       business TEXT,
-      desc TEXT,
+      gst TEXT,
+      authname TEXT,
+      bcontact TEXT,
+      pcontact TEXT,
+      email TEXT,
+
+
       createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 
     )""");
@@ -18,10 +24,10 @@ class SQLHelper{
       
     );
   }
-  static Future<int> createData(String business, String? desc) async{
+  static Future<int> createData(String business, String? gst, String? authname, String? bcontact, String? pcontact, String? email) async{
     final db =  await SQLHelper.db();
 
-    final data = {'business':business, 'desc': desc};
+    final data = {'business':business, 'gst': gst,'authname':authname,'bcontact':bcontact,'pcontact':pcontact,'email':email};
     final id = await db.insert('data', data, conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
  
@@ -34,11 +40,15 @@ class SQLHelper{
     final db = await SQLHelper.db();
     return db.query('data', where: "id = ?",whereArgs: [id], limit:1);
   }
-  static Future<int> updateData(int id, String business, String? desc) async{
+  static Future<int> updateData(int id, String business, String? gst, String? authname, String? bcontact, String? pcontact, String? email) async{
     final db = await SQLHelper.db();
     final data = {
       'business': business,
-      'desc': desc,
+      'gst': gst,
+      'authname':authname,
+      'bcontact':bcontact,
+      'pcontact':pcontact,
+      'email':email,
       'createdAt': DateTime.now().toString()
     };
     final result = 

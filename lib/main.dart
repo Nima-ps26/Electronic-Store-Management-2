@@ -1,6 +1,13 @@
 import 'package:esm/home_screen.dart';
+import 'package:esm/pages/home_page.dart';
+import 'package:esm/splash.dart';
+// ignore: unused_import
+import 'purchase.dart';
 import 'package:flutter/material.dart';  
-
+import 'sample.dart';
+import 'package:esm/model/cart_model.dart';
+import 'package:provider/provider.dart';
+import 'pages/intro_screen.dart';
 void main() {  
   runApp(MaterialApp(  
     title: 'Flutter Navigation',  
@@ -8,128 +15,140 @@ void main() {
       // This is the theme of your application.  
       primarySwatch: Colors.green,  
     ),  
-    home: FirstRoute(),  
+    home: splashscreen(),  
   ));  
 }  
-  
-class FirstRoute extends StatelessWidget {  
+class MyApp extends  StatelessWidget {
   @override  
   Widget build(BuildContext context) {  
-    return Container (
-      decoration:BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "DP",
+      theme: ThemeData(
+        primarySwatch: Colors.brown,
       ),
+      home: splashscreen(),
+    );
+}
+}
+// class FirstRoute extends StatelessWidget {  
+//   @override  
+//   Widget build(BuildContext context) {  
+//     return Container (
+//       decoration:BoxDecoration(
+//         image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
+//       ),
     
-      child: Scaffold(  
+//       child: Scaffold(  
 
 
-      // appBar: AppBar(  
-      //   //title: Text('First Screen'),  
-      //   backgroundColor: Colors.purple,
-      // ),       
-      body: Center(  
-        child: Container(
-          decoration:BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
-      ),
+//       // appBar: AppBar(  
+//       //   //title: Text('First Screen'),  
+//       //   backgroundColor: Colors.purple,
+//       // ),       
+//       body: Center(  
+//         child: Container(
+//           decoration:BoxDecoration(
+//         image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
+//       ),
     
-          child: Column(
+//           child: Column(
             
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-                    // Container(
-                    //     child: Text("Login Page", style: TextStyle(fontSize: 20))),
-            // ignore: prefer_const_constructors
-            SizedBox(
-              height: 100, // <-- SEE HERE
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text("Electronic Store", style: TextStyle(fontSize: 30,),),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Image.asset('assets/customer1.png', height: 10, width: 20,fit: BoxFit.fill),
-            ),
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: <Widget>[
+//                     // Container(
+//                     //     child: Text("Login Page", style: TextStyle(fontSize: 20))),
+//             // ignore: prefer_const_constructors
+//             SizedBox(
+//               height: 100, // <-- SEE HERE
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(5.0),
+//               child: Text("Electronic Store", style: TextStyle(fontSize: 30,),),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(5.0),
+//               child: Image.asset('assets/customer1.png', height: 10, width: 20,fit: BoxFit.fill),
+//             ),
                 
              
-            SizedBox(
-              height: 100, // <-- SEE HERE
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  icon: const Icon(Icons.person),
-                  hintText: 'Enter your name',
-                  labelText: 'User Name',
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(
-              height: 25, // <-- SEE HERE
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  icon: const Icon(Icons.password),
-                  hintText: 'Password',
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(
-              height: 55, // <-- SEE HERE
-            ),
+//             SizedBox(
+//               height: 100, // <-- SEE HERE
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(5.0),
+//               child: TextFormField(
+//                 decoration: const InputDecoration(
+//                   icon: const Icon(Icons.person),
+//                   hintText: 'Enter your name',
+//                   labelText: 'User Name',
+//                   border: OutlineInputBorder(),
+//                 ),
+//                 validator: (value) {
+//                   if (value!.isEmpty) {
+//                     return 'Please enter some text';
+//                   }
+//                   return null;
+//                 },
+//               ),
+//             ),
+//             SizedBox(
+//               height: 25, // <-- SEE HERE
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(5.0),
+//               child: TextFormField(
+//                 decoration: const InputDecoration(
+//                   icon: const Icon(Icons.password),
+//                   hintText: 'Password',
+//                   labelText: 'Password',
+//                   border: OutlineInputBorder(),
+//                 ),
+//                 validator: (value) {
+//                   if (value!.isEmpty) {
+//                     return 'Please enter some text';
+//                   }
+//                   return null;
+//                 },
+//               ),
+//             ),
+//             SizedBox(
+//               height: 55, // <-- SEE HERE
+//             ),
                
           
-            // ignore: unnecessary_new
-            new Container(
-                padding: const EdgeInsets.only(left: 150.0, top: 20.0),
-                child: new ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                  primary: Colors.purple, // background
-                  onPrimary: Colors.white, // foreground
-  ),
-                  child: const Text('Login'),
+//             // ignore: unnecessary_new
+//             new Container(
+//                 padding: const EdgeInsets.only(left: 150.0, top: 20.0),
+//                 child: new ElevatedButton(
+//                   style: ElevatedButton.styleFrom(
+//                   primary: Colors.purple, // background
+//                   onPrimary: Colors.white, // foreground
+//   ),
+//                   child: const Text('Login'),
         
         
-                  onPressed: () {
-                     Navigator.push(  
-                context,  
-                MaterialPageRoute(builder: (context) => SecondRoute()),  
-              );  
-                    // It returns true if the form is valid, otherwise returns false
-                    // if (_formKey.currentState!.validate()) {
-                    //   // If the form is valid, display a Snackbar.
-                    // }
-                  },
-                )),
+//                   onPressed: () {
+//                      Navigator.push(  
+//                 context,  
+//                 MaterialPageRoute(builder: (context) => SecondRoute()),  
+//               );  
+//                     // It returns true if the form is valid, otherwise returns false
+//                     // if (_formKey.currentState!.validate()) {
+//                     //   // If the form is valid, display a Snackbar.
+//                     // }
+//                   },
+//                 )),
                     
-          ],
-              ),
-        ),
+//           ],
+//               ),
+//         ),
        
-      ),  
-    )
-    );  
-  }  
-}
+//       ),  
+//     )
+//     );  
+//   }  
+// }
 
 class SecondRoute extends StatelessWidget {  
   @override  
@@ -205,7 +224,7 @@ class SecondRoute extends StatelessWidget {
                   onPressed: () {
                      Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => sixthRoute()),  
+                MaterialPageRoute(builder: (context) => HomePage()),  
                           );  
                     // It returns true if the form is valid, otherwise returns false
                     // if (_formKey.currentState!.validate()) {
@@ -1100,7 +1119,7 @@ class seventhRoute extends StatelessWidget {
                 onPressed: () {
                    Navigator.push(  
               context,  
-              MaterialPageRoute(builder: (context) => SecondRoute()),  
+              MaterialPageRoute(builder: (context) => CustomerTable()),  
             );  
                   // It returns true if the form is valid, otherwise returns false
                   // if (_formKey.currentState!.validate()) {

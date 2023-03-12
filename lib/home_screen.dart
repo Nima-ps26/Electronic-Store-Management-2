@@ -27,13 +27,13 @@ void initstate() {
 
 //add data
 Future<void> _addData() async{
-  await SQLHelper.createData(_businessController.text, _descController.text);
+  await SQLHelper.createData(_businessController.text, _gstController.text, _authnameController.text, _bcontactController.text, _pcontactController.text, _emailController.text);
   _refreshData();
 }
 
 //update data
 Future<void> _updateData(int id) async{
-  await SQLHelper.createData(_businessController.text, _descController.text);
+  await SQLHelper.createData(_businessController.text, _gstController.text, _authnameController.text, _bcontactController.text, _pcontactController.text, _emailController.text);
   _refreshData();
 }
 
@@ -41,7 +41,7 @@ Future<void> _updateData(int id) async{
 void _deleteData(int id) async {
   await SQLHelper.deleteData(id);
   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-    backgroundColor: Colors.redAccent,
+    backgroundColor: Colors.purple,
     content:Text("Data Deleted")
   ));
   _refreshData();
@@ -49,12 +49,21 @@ void _deleteData(int id) async {
 
 
 final TextEditingController _businessController = TextEditingController();
-final TextEditingController _descController = TextEditingController();
+final TextEditingController _gstController = TextEditingController();
+final TextEditingController _authnameController = TextEditingController();
+final TextEditingController _bcontactController = TextEditingController();
+final TextEditingController _pcontactController = TextEditingController();
+final TextEditingController _emailController = TextEditingController();
+
 void showBottomSheet(int? id) async{
   if(id!= null){
     final existingData = _allData.firstWhere((element) => element['id']==id);
     _businessController.text = existingData['business'];
-    _descController.text = existingData['desc'];
+    _gstController.text= existingData['gst'];
+    _authnameController.text =  existingData['authname'];
+    _bcontactController.text = existingData['bcontact'];
+     _pcontactController.text= existingData['pcontact'];
+      _emailController.text = existingData['email'];
   }
   showModalBottomSheet(
     elevation: 5,
@@ -79,19 +88,59 @@ void showBottomSheet(int? id) async{
 
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 3),
           TextField(
-            controller: _descController,
-            maxLines: 4,
+            controller: _gstController,
+            maxLines: 1,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: "Description",
+              hintText: "Gst number",
+
+            ),
+          ),
+          SizedBox(height: 3),
+          TextField(
+            controller: _authnameController,
+            maxLines: 1,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Authorised persons name:",
+
+            ),
+          ),
+          SizedBox(height: 3),
+          TextField(
+            controller: _bcontactController,
+            maxLines: 1,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Business contact number::",
+
+            ),
+          ),SizedBox(height: 3),
+          TextField(
+            controller: _pcontactController,
+            maxLines: 1,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Personal contact number:",
+
+            ),
+          ),
+          SizedBox(height: 3),
+          TextField(
+            controller: _emailController,
+            maxLines: 1,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Email",
 
             ),
           ),
           SizedBox(height: 20),
           Center(
             child: ElevatedButton(
+              
               onPressed: () async {
                 if(id == null){
                   await _addData();
@@ -100,20 +149,27 @@ void showBottomSheet(int? id) async{
                   await _updateData(id);
                 }
                 _businessController.text="";
-                _descController.text="";
+                _gstController.text="";
+                _authnameController.text ="";
+                _bcontactController.text ="";
+                _pcontactController.text="";
+                _emailController.text ="";
 
                 Navigator.of(context).pop();
                 print("data added");
               },
               child: Padding(
                 padding: EdgeInsets.all(18),
+                
                 child: Text(id==null ? "Add data":"update",
               
-              style:TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
+              style:TextStyle(fontSize: 18,fontWeight: FontWeight.w500,),
               ),
+             
+  ),
               ),
             ),
-          )
+          
         ],
       ),
      ),
@@ -125,7 +181,8 @@ void showBottomSheet(int? id) async{
     return Scaffold(
       backgroundColor: Color(0xFFECEAF4),
       appBar: AppBar(
-        title: Text("CRUD Operations"),
+        title: Text("Supplier"),
+        backgroundColor: Colors.purple,
       ),
     body: _isloading
     ? Center(
@@ -145,7 +202,11 @@ void showBottomSheet(int? id) async{
                 ),
                 ),
                 ),
-                subtitle:Text(_allData[index]['desc']),
+                subtitle:Text(_allData[index]['gst']),
+                leading:Text(_allData[index]['authname']),
+                
+
+               
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -155,7 +216,7 @@ void showBottomSheet(int? id) async{
                       },
                     icon: Icon(
                       Icons.edit,
-                      color: Colors.indigo,
+                      color: Colors.deepOrange,
                     ),
                     ),
                 IconButton(
@@ -164,7 +225,7 @@ void showBottomSheet(int? id) async{
                     },
                     icon: Icon(
                       Icons.delete,
-                      color: Colors.indigo,
+                      color: Colors.deepOrange,
 
                     ),
                     ),
@@ -177,7 +238,11 @@ void showBottomSheet(int? id) async{
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => showBottomSheet(null),
-          child: Icon(Icons.add),
+          child: Icon(
+            Icons.add),
+            backgroundColor: Colors.purple,
+            foregroundColor: Colors.deepOrangeAccent, 
+        
         ),
         );
 
