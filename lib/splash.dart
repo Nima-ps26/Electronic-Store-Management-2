@@ -2,6 +2,7 @@ import 'package:esm/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'home.dart';
+import 'login.dart';
 class splashscreen extends StatefulWidget{
   @override
   _splashscreenState createState() => _splashscreenState();
@@ -15,7 +16,7 @@ class splashscreen extends StatefulWidget{
         Navigator.pushReplacement(
           context, 
           MaterialPageRoute(
-            builder: (context)=>FirstRoute()));
+            builder: (context)=>MyLogin()));
       });
     }
     @override
