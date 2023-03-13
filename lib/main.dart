@@ -196,7 +196,7 @@ class SecondRoute extends StatelessWidget {
                   onPressed: () {
                      Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => Stock()),  
+                MaterialPageRoute(builder: (context) => seventhRoute()),  
               );  
                     // It returns true if the form is valid, otherwise returns false
                     // if (_formKey.currentState!.validate()) {
