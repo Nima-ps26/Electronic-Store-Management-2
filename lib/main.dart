@@ -8,6 +8,8 @@ import 'sample.dart';
 import 'package:esm/model/cart_model.dart';
 import 'package:provider/provider.dart';
 import 'pages/intro_screen.dart';
+import 'invoice.dart';
+import 'stock.dart';
 void main() {  
   runApp(MaterialApp(  
     title: 'Flutter Navigation',  
@@ -158,6 +160,7 @@ class SecondRoute extends StatelessWidget {
         image: DecorationImage(image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover)
       ),
       child: Scaffold(  
+        resizeToAvoidBottomInset: false,
 
 
       // appBar: AppBar(  
@@ -193,7 +196,7 @@ class SecondRoute extends StatelessWidget {
                   onPressed: () {
                      Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => seventhRoute()),  
+                MaterialPageRoute(builder: (context) => Stock()),  
               );  
                     // It returns true if the form is valid, otherwise returns false
                     // if (_formKey.currentState!.validate()) {
@@ -224,7 +227,7 @@ class SecondRoute extends StatelessWidget {
                   onPressed: () {
                      Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => HomePage()),  
+                MaterialPageRoute(builder: (context) => sixthRoute()),  
                           );  
                     // It returns true if the form is valid, otherwise returns false
                     // if (_formKey.currentState!.validate()) {
@@ -280,7 +283,7 @@ class SecondRoute extends StatelessWidget {
                     onPressed: () {
                        Navigator.push(  
                   context,  
-                  MaterialPageRoute(builder: (context) => fifthRoute()),  
+                  MaterialPageRoute(builder: (context) => InvoicePage()),  
                 );  
                       // It returns true if the form is valid, otherwise returns false
                       // if (_formKey.currentState!.validate()) {
@@ -738,7 +741,7 @@ class fifthRoute extends StatelessWidget {
                 onPressed: () {
                    Navigator.push(  
               context,  
-              MaterialPageRoute(builder: (context) => SecondRoute()),  
+              MaterialPageRoute(builder: (context) => InvoicePage()),  
             );  
                   // It returns true if the form is valid, otherwise returns false
                   // if (_formKey.currentState!.validate()) {
@@ -958,7 +961,7 @@ class seventhRoute extends StatelessWidget {
     
       
       child: Scaffold(  
-
+resizeToAvoidBottomInset: false,
 
       appBar: AppBar(  
         title: Text('Add B2B customer details'),  
