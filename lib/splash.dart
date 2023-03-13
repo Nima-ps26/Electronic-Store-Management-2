@@ -22,17 +22,23 @@ class splashscreen extends StatefulWidget{
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color.fromARGB(255, 151, 36, 197),
         body: Center(
+          child: Container(
+          decoration:BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/ircl.jpg'), fit: BoxFit.cover)
+      ),
+          
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 50),
              // Image(image: ResizeImage(AssetImage('assets/customer1.png'), width: 40, height: 50)),
-              Text("Electronics store ", style:TextStyle(fontSize: 45,color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1,
+              Text("Electronics store ", style:TextStyle(fontSize: 40,color: Colors.white, fontStyle: FontStyle.italic, letterSpacing: 0,
               ) ,
               ),
-              SizedBox(height: 30),
-               Text("Buy home appliances, laptops at reasonable prices", style:TextStyle(fontSize:18,color: Colors.white, fontStyle: FontStyle.italic, letterSpacing: 1,
+              SizedBox(height: 20),
+               Text("Buy electronic items at reasonable prices", style:TextStyle(fontSize:18,color: Colors.white, wordSpacing: 12, 
               ) ,
               ),
               
@@ -40,6 +46,7 @@ class splashscreen extends StatefulWidget{
 
           ],
           )),
+      ),
       );
     }
   }

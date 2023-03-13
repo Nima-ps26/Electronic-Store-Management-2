@@ -100,6 +100,9 @@ class _MyLoginState extends State<MyLogin> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               TextButton(
+                                style: TextButton.styleFrom(
+    primary: Colors.white, // Text Color
+  ),
                                 child: const Text('SignUp'),
           
           
