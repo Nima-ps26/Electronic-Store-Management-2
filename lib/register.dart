@@ -1,6 +1,8 @@
+import 'package:esm/dashhboard.dart';
 import 'package:esm/main.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'dashhboard.dart';
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
 
@@ -133,7 +135,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     onPressed: () {
                                       Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => SecondRoute()),  
+                MaterialPageRoute(builder: (context) => MyDashboard()),  
               ); 
 
                                     },

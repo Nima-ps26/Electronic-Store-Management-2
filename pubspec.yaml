@@ -42,6 +42,7 @@ dependencies:
   provider: ^6.0.5
   pdf: ^3.6.0
   printing: ^5.5.0
+  intl: ^0.18.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,8 +72,16 @@ flutter:
   assets:
     - assets/bg.jpg
     - assets/bg1.jpg
+    - assets/bg2.png
     - assets/customer1.png
-    - assets/ircl.jpg
+    - assets/ircl.png
+    - assets/ircl1.png
+    - assets/Customer.png
+    - assets/product.png
+    - assets/supplier.png
+    - assets/stock.png
+    - assets/purchase.png
+    - assets/report.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

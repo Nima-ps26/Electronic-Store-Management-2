@@ -12,7 +12,7 @@ class splashscreen extends StatefulWidget{
     @override
     void initState() {
       super.initState();
-      Timer(Duration(seconds: 3),(){
+      Timer(Duration(seconds: 5),(){
         Navigator.pushReplacement(
           context, 
           MaterialPageRoute(
@@ -26,26 +26,27 @@ class splashscreen extends StatefulWidget{
         body: Center(
           child: Container(
           decoration:BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/ircl.jpg'), fit: BoxFit.cover)
+        image: DecorationImage(image: AssetImage('assets/ircl.png'), fit: BoxFit.cover)
       ),
           
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 50),
-             // Image(image: ResizeImage(AssetImage('assets/customer1.png'), width: 40, height: 50)),
-              Text("Electronics store ", style:TextStyle(fontSize: 40,color: Colors.white, fontStyle: FontStyle.italic, letterSpacing: 0,
-              ) ,
-              ),
-              SizedBox(height: 20),
-               Text("Buy electronic items at reasonable prices", style:TextStyle(fontSize:18,color: Colors.white, wordSpacing: 12, 
-              ) ,
-              ),
+          // child: Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          // //   children: [
+          // //     SizedBox(height: 50),
+          // //    // Image(image: ResizeImage(AssetImage('assets/customer1.png'), width: 40, height: 50)),
+          // //     Text("Electronics store ", style:TextStyle(fontSize: 40,color: Colors.white, fontStyle: FontStyle.italic, letterSpacing: 0,
+          // //     ) ,
+          // //     ),
+          // //     SizedBox(height: 20),
+          // //      Text("Buy electronic items at reasonable prices", style:TextStyle(fontSize:18,color: Colors.white, wordSpacing: 12, 
+          // //     ) ,
+          // //     ),
               
               
 
-          ],
-          )),
+          // // ],
+          // )
+          ),
       ),
       );
     }

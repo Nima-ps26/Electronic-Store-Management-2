@@ -2,6 +2,7 @@ import 'package:esm/main.dart';
 import 'package:flutter/material.dart';
 import 'package:esm/splash.dart';
 import 'register.dart';
+import 'dashhboard.dart';
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
 
@@ -15,7 +16,7 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover),
+            image: AssetImage('assets/bg2.png'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -25,7 +26,7 @@ class _MyLoginState extends State<MyLogin> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 130),
               child: Text(
-                'Welcome\nBack',
+                'Welcome\nBack!',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
@@ -83,7 +84,7 @@ class _MyLoginState extends State<MyLogin> {
                                     onPressed: () {
                                       Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => SecondRoute()),  
+                MaterialPageRoute(builder: (context) => MyDashboard()),  
               ); 
                                     },
                                     icon: Icon(

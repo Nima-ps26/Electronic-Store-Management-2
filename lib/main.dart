@@ -1,6 +1,7 @@
 import 'package:esm/home_screen.dart';
 import 'package:esm/home_screen_cust.dart';
 import 'package:esm/pages/home_page.dart';
+import 'report.dart';
 import 'package:esm/splash.dart';
 // ignore: unused_import
 import 'purchase.dart';
@@ -12,6 +13,7 @@ import 'pages/intro_screen.dart';
 import 'invoice.dart';
 import 'stock.dart';
 import 'print.dart';
+import 'dashhboard.dart';
 void main() {  
   runApp(MaterialApp(  
     title: 'Flutter Navigation',  
@@ -258,7 +260,7 @@ class SecondRoute extends StatelessWidget {
                   onPressed: () {
                      Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => HomeScreen()),  
+                MaterialPageRoute(builder: (context) => fourthRoute()),  
                           );  
                     // It returns true if the form is valid, otherwise returns false
                     // if (_formKey.currentState!.validate()) {
