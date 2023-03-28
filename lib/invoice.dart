@@ -23,7 +23,7 @@ class InvoiceWidget extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Invoice $invoiceNumber'),
+        title: Text('Bill'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -44,6 +44,7 @@ class InvoiceWidget extends StatelessWidget {
                 final item = items[index];
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  
                   children: [
                     Text(item.name),
                     Text('\$${item.price} x ${item.quantity}'),
@@ -94,8 +95,8 @@ class InvoiceItem {
   final String name;
   final double price;
   final int quantity;
-
-  InvoiceItem({required this.name, required this.price, required this.quantity});
+  final String customername;
+  InvoiceItem({required this.customername, required this.name, required this.price, required this.quantity});
 }
 class InvoicePage extends StatefulWidget {
   @override
@@ -103,18 +104,20 @@ class InvoicePage extends StatefulWidget {
 }
 
 class _InvoicePageState extends State<InvoicePage> {
+  final TextEditingController _customernameController = TextEditingController();
   final TextEditingController _itemNameController = TextEditingController();
   final TextEditingController _itemPriceController = TextEditingController();
   final TextEditingController _itemQuantityController = TextEditingController();
   final List<InvoiceItem> _items = [];
 
   void _addItem() {
+    final String customername = _customernameController.text;
     final String name = _itemNameController.text.trim();
     final double price = double.tryParse(_itemPriceController.text.trim()) ?? 0.0;
     final int quantity = int.tryParse(_itemQuantityController.text.trim()) ?? 0;
     if (name.isNotEmpty && price > 0 && quantity > 0) {
       setState(() {
-        _items.add(InvoiceItem(name: name, price: price, quantity: quantity));
+        _items.add(InvoiceItem(customername:customername,name: name, price: price, quantity: quantity));
         _itemNameController.clear();
         _itemPriceController.clear();
         _itemQuantityController.clear();
@@ -133,7 +136,16 @@ class _InvoicePageState extends State<InvoicePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: [
+            TextField(
+              controller: _customernameController,
+              decoration: InputDecoration(
+                labelText: 'Customer name',
+                
+              ),
+            ),
+            
             TextField(
               controller: _itemNameController,
               decoration: InputDecoration(

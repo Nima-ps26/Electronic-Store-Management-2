@@ -1,6 +1,8 @@
 import 'package:esm/home_screen.dart';
 import 'package:esm/home_screen_cust.dart';
 import 'package:esm/pages/home_page.dart';
+//import 'package:firebase_core/firebase_core.dart';
+import 'inv/invoice_form.dart';
 import 'report.dart';
 import 'package:esm/splash.dart';
 // ignore: unused_import
@@ -14,14 +16,17 @@ import 'invoice.dart';
 import 'stock.dart';
 import 'print.dart';
 import 'dashhboard.dart';
-void main() {  
+import 'inv/invoice_display.dart';
+void main() async {  
+  WidgetsFlutterBinding.ensureInitialized();
+  // Firebase.initializeApp();
   runApp(MaterialApp(  
     title: 'Flutter Navigation',  
     theme: ThemeData(  
       // This is the theme of your application.  
       primarySwatch: Colors.green,  
     ),  
-    home: splashscreen(),  
+    home:splashscreen(),  
   ));  
 }  
 class MyApp extends  StatelessWidget {
@@ -33,7 +38,7 @@ class MyApp extends  StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      home: splashscreen(),
+      home: InvoiceForm(),
     );
 }
 }
@@ -233,7 +238,7 @@ class SecondRoute extends StatelessWidget {
 
                      Navigator.push(  
                 context,  
-                MaterialPageRoute(builder: (context) => HomeScreen1()),  
+                MaterialPageRoute(builder: (context) => seventhRoute()),  
                           );  
                 //     // It returns true if the form is valid, otherwise returns false
                 //     // if (_formKey.currentState!.validate()) {
@@ -283,7 +288,7 @@ class SecondRoute extends StatelessWidget {
                       primary: Colors.purple, // background
                       onPrimary: Colors.white, // foreground
               ),
-                    child: const Text('Purchase'),
+                    child: const Text('Sales'),
                       
                       
                     onPressed: () {
@@ -414,6 +419,7 @@ class thirdRoute extends StatelessWidget {
 }
 //supplier
 class fourthRoute extends StatelessWidget {  
+ 
   @override  
   Widget build(BuildContext context) {  
     return Container (
@@ -623,7 +629,7 @@ class fifthRoute extends StatelessWidget {
 
 
       appBar: AppBar(  
-        title: Text('Purchase'),  
+        title: Text('Sales'),  
         backgroundColor: Colors.purple,
       ),  
       body: Center(  
@@ -644,7 +650,7 @@ class fifthRoute extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(5.0),
-            child: Text("Purchase", style: TextStyle(fontSize: 20,),),
+            child: Text("Sales", style: TextStyle(fontSize: 20,),),
           ),
           SizedBox(
             height: 10, // <-- SEE HERE
@@ -1129,7 +1135,7 @@ resizeToAvoidBottomInset: false,
                 onPressed: () {
                    Navigator.push(  
               context,  
-              MaterialPageRoute(builder: (context) => CustomerTable()),  
+              MaterialPageRoute(builder: (context) => fifthRoute()),  
             );  
                   // It returns true if the form is valid, otherwise returns false
                   // if (_formKey.currentState!.validate()) {
