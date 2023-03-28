@@ -1,8 +1,18 @@
+import 'package:esm/MyForm.dart';
+import 'package:esm/home_screen.dart';
 import 'package:esm/home_screen_cust.dart';
+import 'package:esm/inv/invoice_display.dart';
+import 'package:esm/inv/invoice_form.dart';
 import 'package:esm/invoice.dart';
+import 'package:esm/item/item_form.dart';
 import 'package:esm/main.dart';
+import 'package:esm/supplier/sup_form.dart';
 import 'package:flutter/material.dart';
 import 'report.dart';
+import 'package:esm/insert_data';
+import 'Purchase/purchase_display.dart';
+import 'Purchase/purchase_form.dart';
+import 'Purchase/purchase_display.dart';
 class MyDashboard extends StatefulWidget {
   const MyDashboard({super.key});
 
@@ -28,6 +38,7 @@ class _MyDashboardState extends State<MyDashboard> {
                 image: DecorationImage(
                     alignment: Alignment.topCenter,
                     image: Image.network(
+                      
                             'https://mars-metcdn-com.global.ssl.fastly.net/content/uploads/sites/101/2019/04/30162428/Top-Header-Background.png')
                         .image)),
           ),
@@ -56,9 +67,9 @@ class _MyDashboardState extends State<MyDashboard> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Text("Dashboard",style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 40),),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Expanded(
                 
                   child: GridView.count(
@@ -72,8 +83,8 @@ class _MyDashboardState extends State<MyDashboard> {
                               children: <Widget>[
                                                 Image(
                         image: AssetImage('assets/Customer.png'),
-                        width: 90, // set the desired width
-                        height: 90, // set the desired height
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
                       ),
 
                             Text(
@@ -83,7 +94,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           ])),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => seventhRoute()));
+                            MaterialPageRoute(builder: (context) => MyForm()));
                       },
                     ),
                     InkWell(
@@ -94,8 +105,8 @@ class _MyDashboardState extends State<MyDashboard> {
                             
                              Image(
                         image: AssetImage('assets/product.png'),
-                        width: 90, // set the desired width
-                        height: 90, // set the desired height
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
                       ),
                             Text('Products',
                                 style: TextStyle(fontWeight: FontWeight.bold)),
@@ -104,7 +115,7 @@ class _MyDashboardState extends State<MyDashboard> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => sixthRoute()));
+                                builder: (context) => itemForm()));
                       },
                     ),
                     InkWell(
@@ -115,8 +126,8 @@ class _MyDashboardState extends State<MyDashboard> {
                             //Image.asset('assets/debit.png', scale: 3.2),
                              Image(
                         image: AssetImage('assets/supplier.png'),
-                        width: 90, // set the desired width
-                        height: 90, // set the desired height
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
                       ),
 
                             SizedBox(
@@ -127,7 +138,29 @@ class _MyDashboardState extends State<MyDashboard> {
                           ])),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => fourthRoute()));
+                            MaterialPageRoute(builder: (context) => supForm()));
+                      },
+                    ),
+                    InkWell(
+                      child: Card(
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                            //Image.asset('assets/debit.png', scale: 3.2),
+                            Image(
+                        image: AssetImage('assets/purchase.png'),
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
+                      ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text('Purchase',
+                                style: TextStyle(fontWeight: FontWeight.bold))
+                          ])),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => PurchaseForm()));
                       },
                     ),
                     InkWell(
@@ -149,7 +182,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           ])),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HomeScreen1 ()));
+                            MaterialPageRoute(builder: (context) => Displaydatabase()));
                       },
                     ),
                     InkWell(
@@ -163,18 +196,18 @@ class _MyDashboardState extends State<MyDashboard> {
                             // ),
                             Image(
                         image: AssetImage('assets/purchase.png'),
-                        width: 90, // set the desired width
-                        height: 90, // set the desired height
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
                       ),
                             SizedBox(
                               height: 22,
                             ),
-                            Text('Purchase',
+                            Text('Sales',
                                 style: TextStyle(fontWeight: FontWeight.bold))
                           ])),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) =>InvoicePage()));
+                            MaterialPageRoute(builder: (context) =>InvoiceForm()));
                       },
                     ),
                     InkWell(
@@ -188,8 +221,8 @@ class _MyDashboardState extends State<MyDashboard> {
                             // ),
                             Image(
                         image: AssetImage('assets/report.png'),
-                        width: 90, // set the desired width
-                        height: 90, // set the desired height
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
                       ),
                             SizedBox(
                               height: 22,
@@ -199,7 +232,7 @@ class _MyDashboardState extends State<MyDashboard> {
                           ])),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) =>ReportScreen(transactions: [],)));
+                            MaterialPageRoute(builder: (context) =>Displaydatabases()));
                       },
                     ),
                   ])),
