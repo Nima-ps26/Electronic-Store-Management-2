@@ -1,51 +1,137 @@
-// import 'dart:io';
-// import 'package:flutter/material.dart'; 
-// import 'package:pdf/pdf.dart';
-// import 'package:pdf/widgets.dart' as pw;
-// import 'dart:typed_data';
-// Future<void> generateInvoice() async  {
-//   // create a new PDF document
-//   final pdf = pw.Document();
+import 'package:flutter/material.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pdfWidgets;
 
-//   // add a title to the invoice
-//   pdf.addPage(
-//     pw.Page(
-//       build: (context) => pw.Center(
-//         child: pw.Text(
-//           'Invoice',
-//           style: pw.TextStyle(fontSize: 20),
-//         ),
-//       ),
-//     ),
-//   );
+class Invoicepageprint extends StatelessWidget {
+  String customername, itemname, name, email, business, business5;
+  int quantity, amount;
+  Invoicepageprint({
+    required this.customername,
+    required this.name,
+    required this.itemname,
+    required this.quantity,
+    required this.amount,
+    required this.email,
+    required this.business,
+    required this.business5,
+  });
 
-//   // add the details of the invoice
-//   pdf.addPage(
-//     pw.MultiPage(
-//       build: (context) => [
-//         pw.Header(text: 'Invoice Details'),
-//         pw.Table.fromTextArray(
-//           headerStyle: pw.TextStyle(fontWeight: pw.FontWeight.bold),
-//           data: <List<String>>[
-//             <String>['Item', 'Quantity', 'Price'],
-//             <String>['Item 1', '2', '\$10'],
-//             <String>['Item 2', '1', '\$5'],
-//             <String>['Item 3', '3', '\$15'],
-//           ],
-//         ),
-//         pw.Padding(padding: pw.EdgeInsets.all(10)),
-//         pw.Row(
-//           mainAxisAlignment: pw.MainAxisAlignment.end,
-//           children: [
-//             pw.Text('Total: \$30'),
-//           ],
-//         ),
-//       ],
-//     ),
-//   );
-
-//   // save the PDF document to a file
-//   final file = File('invoice.pdf');
-//   await file.writeAsBytes(await pdf.save());
-// }
-// // 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 150,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    // Color(0xffFFB900),
+                    // Color(0xffFF9800),
+                    Colors.orangeAccent,
+                    Colors.orangeAccent,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 20),
+                    Text(
+                      'Electronic Store',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 22, 21, 21),
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Hampankatta,mangalore',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 245, 242, 242),
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'INVOICE',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 239, 239, 15),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Divider(height: 2.0, thickness: 5.0),
+            Container(
+                child: Align(
+              alignment: Alignment.topCenter,
+              child: Column(children: [
+                SizedBox(height: 20),
+                Text(
+                  'Customer Name: $customername',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Authorised person: $name',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
+                ),
+                Text(
+                  'Email: $email',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Supplier Name: $business',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Email: $business5',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
+                ),
+              ]),
+            )),
+          
+            SizedBox(height: 30),
+            Text(
+              'Thank you for your purchase! Please visit us again!',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[700],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

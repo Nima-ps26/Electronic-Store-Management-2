@@ -102,6 +102,14 @@ class DatabaseHelper {
     )  
     """);
 
+//     await database.execute('''
+//   CREATE TRIGGER update_stock AFTER INSERT ON invoices
+//   BEGIN
+//     UPDATE items SET stock = stock - NEW.quantity WHERE itemname = NEW.itemname;
+//   END;
+// ''');
+
+
     // next table add here.............
 
 
@@ -433,6 +441,9 @@ static Future<List<Map<String, dynamic>>> rawQuery(String query, List<String> li
   
   return dbClient.rawQuery(query,list);
 }
+
+
+
 
 
 

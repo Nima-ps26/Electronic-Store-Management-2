@@ -194,7 +194,7 @@ void didChangeDependencies() {
               ),
             ),
             SizedBox(
-            height: 22, // <-- SEE HERE
+            height:22, // <-- SEE HERE
           ),
             TextField(
               controller: gstnumberController1,

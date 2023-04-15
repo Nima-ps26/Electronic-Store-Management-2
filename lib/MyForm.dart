@@ -156,14 +156,17 @@ void didChangeDependencies() {
         backgroundColor: Colors.purple,
       ),
       body: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/bg1.png'),
-          fit: BoxFit.cover,
-        ),
-      ),
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     image: AssetImage('assets/bg1.png'),
+      //     fit: BoxFit.cover,
+      //   ),
+      // ),
       child: SingleChildScrollView(
       child:Container (
+          decoration: BoxDecoration(
+               color: Colors.lime
+              ),
         
         child: Column(
         
@@ -174,7 +177,7 @@ void didChangeDependencies() {
             TextField(
               controller: businessnameController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.business),
                 hintText: 'Business Name:',
                 labelText: 'Business Name:',
                 border: OutlineInputBorder(),

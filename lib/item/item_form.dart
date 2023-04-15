@@ -170,7 +170,7 @@ void didChangeDependencies() {
             TextField(
               controller: itemnameController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.production_quantity_limits),
                 hintText: 'Item Name:',
                 labelText: 'Item Name:',
                 border: OutlineInputBorder(),
@@ -219,8 +219,8 @@ void didChangeDependencies() {
               controller: imgController,
               decoration: const InputDecoration(
                 icon: const Icon(Icons.mobile_friendly),
-                hintText: 'Image',
-                labelText: 'Image',
+                hintText: 'Validity',
+                labelText: 'Validity',
                 border: OutlineInputBorder(),
               ),
             ),

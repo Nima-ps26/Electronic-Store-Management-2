@@ -25,6 +25,7 @@ class _InvoiceFormState extends State<InvoiceForm> {
   String id='';
   String business='';
   String business5='';
+  int auto_amount =0;
 
   late TextEditingController customernameController;
   late TextEditingController itemnameController;
@@ -201,7 +202,7 @@ void didChangeDependencies() {
             // },
               controller: customernameController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.person),
                 hintText: 'Customer Name:',
                 labelText: 'Customer Name:',
                 border: OutlineInputBorder(),
@@ -237,7 +238,7 @@ void didChangeDependencies() {
             },
               controller:nameController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.person_2),
                 hintText: 'Authorised person name',
                 labelText: 'Authorised person name',
                 border: OutlineInputBorder(),
@@ -271,7 +272,7 @@ void didChangeDependencies() {
             },
               controller:emailController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.email_outlined),
                 hintText: 'email id',
                 labelText: 'email id',
                 border: OutlineInputBorder(),
@@ -283,7 +284,7 @@ void didChangeDependencies() {
             TextField(
               controller: itemnameController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.production_quantity_limits_outlined),
                 hintText: 'Item Name',
                 labelText: 'Item Name',
                 border: OutlineInputBorder(),
@@ -317,7 +318,7 @@ void didChangeDependencies() {
             },
               controller:idController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.numbers),
                 hintText: 'Supplier id',
                 labelText: 'Supplier id',
                 border: OutlineInputBorder(),
@@ -351,7 +352,7 @@ void didChangeDependencies() {
             },
               controller:businessController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.person_3_rounded),
                 hintText: 'Supplier name',
                 labelText: 'Supplier name',
                 border: OutlineInputBorder(),
@@ -385,7 +386,7 @@ void didChangeDependencies() {
             },
               controller:business5Controller,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.local_post_office),
+                icon: const Icon(Icons.email),
                 hintText: 'email id',
                 labelText: 'email id',
                 border: OutlineInputBorder(),
@@ -397,7 +398,7 @@ void didChangeDependencies() {
             TextField(
               controller: quantityController,
                decoration: const InputDecoration(
-                icon: const Icon(Icons.numbers),
+                icon: const Icon(Icons.format_size),
                 hintText: 'Quantity',
                 labelText: 'Quantity',
                 border: OutlineInputBorder(),
@@ -409,9 +410,28 @@ void didChangeDependencies() {
             
            
              TextField(
+              onTap: ()async{
+                print('Tapped');
+                final query8 = 'SELECT amount FROM purchases WHERE itemname = ? ';
+              final result8 = await DatabaseHelper.rawQuery(query8,[itemnameController.text]);
+              //print(result7);
+              final contact8 =result8.first['amount'];
+              amountController.text=contact8.toString();
+
+              //print(contact7);
+              if(result8.isNotEmpty){
+                setState(() {
+                  amountController.text=result8.first['amount'].toString();
+                });
+              }
+              else{
+                amountController.text='';
+              }
+
+            },
               controller: amountController,
               decoration: const InputDecoration(
-                icon: const Icon(Icons.email),
+                icon: const Icon(Icons.money),
                 hintText: 'Amount',
                 labelText: 'Amount',
                 border: OutlineInputBorder(),

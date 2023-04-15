@@ -37,7 +37,7 @@ void didChangeDependencies() {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Purchases'),
+        title: Text('Stocks'),
         backgroundColor: Colors.purple,
       ),
       floatingActionButton: FloatingActionButton(

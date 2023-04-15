@@ -16,7 +16,7 @@ class PurchaseForm extends StatefulWidget {
 }
 
 class _PurchaseFormState extends State<PurchaseForm> {
-
+  int auto_amount=0;
 
   late TextEditingController itemnameController;
   late TextEditingController quantityController;
@@ -180,6 +180,25 @@ void didChangeDependencies() {
             
            
              TextField(
+              onTap: ()async{
+                print('Tapped');
+                final query7 = 'SELECT amount FROM items WHERE itemname = ? ';
+              final result7 = await DatabaseHelper.rawQuery(query7,[itemnameController.text]);
+              //print(result7);
+              final contact7 =result7.first['amount'];
+              amountController.text=contact7.toString();
+
+              //print(contact7);
+              if(result7.isNotEmpty){
+                setState(() {
+                  amountController.text=result7.first['amount'].toString();
+                });
+              }
+              else{
+                amountController.text='';
+              }
+
+            },
               controller: amountController,
               decoration: const InputDecoration(
                 icon: const Icon(Icons.phone),

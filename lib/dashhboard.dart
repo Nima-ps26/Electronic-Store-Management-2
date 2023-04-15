@@ -33,14 +33,20 @@ class _MyDashboardState extends State<MyDashboard> {
       body: Stack(
         children: <Widget>[
           Container(
-            height: size.height * 2,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    alignment: Alignment.topCenter,
-                    image: Image.network(
-                      
-                            'https://mars-metcdn-com.global.ssl.fastly.net/content/uploads/sites/101/2019/04/30162428/Top-Header-Background.png')
-                        .image)),
+             height: 850,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    // Color(0xffFFB900),
+                    // Color(0xffFF9800),
+                     Color.fromARGB(255, 83, 11, 200),
+                    Color.fromARGB(255, 187, 12, 179),
+
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
           ),
           SafeArea(
               //background,
@@ -49,7 +55,8 @@ class _MyDashboardState extends State<MyDashboard> {
               child: Column(
             children: <Widget>[
               Container(
-                height: 50,
+                
+                height: 20,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -68,13 +75,13 @@ class _MyDashboardState extends State<MyDashboard> {
                 ),
               ),
               SizedBox(height: 10),
-              Text("Dashboard",style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 40),),
+              Text("Dashboard",style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 40,color: Colors.white),),
               SizedBox(height: 10),
               Expanded(
                 
                   child: GridView.count(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 8,
+                      mainAxisSpacing: 4,
                       children: <Widget>[
                     InkWell(
                       child: Card(
@@ -83,8 +90,8 @@ class _MyDashboardState extends State<MyDashboard> {
                               children: <Widget>[
                                                 Image(
                         image: AssetImage('assets/Customer.png'),
-                        width: 50, // set the desired width
-                        height: 50, // set the desired height
+                        width: 60, // set the desired width
+                        height: 90, // set the desired height
                       ),
 
                             Text(
@@ -105,8 +112,8 @@ class _MyDashboardState extends State<MyDashboard> {
                             
                              Image(
                         image: AssetImage('assets/product.png'),
-                        width: 50, // set the desired width
-                        height: 50, // set the desired height
+                        width: 80, // set the desired width
+                        height: 90, // set the desired height
                       ),
                             Text('Products',
                                 style: TextStyle(fontWeight: FontWeight.bold)),
@@ -127,7 +134,7 @@ class _MyDashboardState extends State<MyDashboard> {
                              Image(
                         image: AssetImage('assets/supplier.png'),
                         width: 50, // set the desired width
-                        height: 50, // set the desired height
+                        height: 90, // set the desired height
                       ),
 
                             SizedBox(
@@ -150,7 +157,7 @@ class _MyDashboardState extends State<MyDashboard> {
                             Image(
                         image: AssetImage('assets/purchase.png'),
                         width: 50, // set the desired width
-                        height: 50, // set the desired height
+                        height: 90, // set the desired height
                       ),
                             SizedBox(
                               height: 15,
@@ -195,9 +202,9 @@ class _MyDashboardState extends State<MyDashboard> {
                             //   scale: 5.4,
                             // ),
                             Image(
-                        image: AssetImage('assets/purchase.png'),
-                        width: 50, // set the desired width
-                        height: 50, // set the desired height
+                        image: AssetImage('assets/sales.png'),
+                        width: 65, // set the desired width
+                        height: 90, // set the desired height
                       ),
                             SizedBox(
                               height: 22,
@@ -208,6 +215,31 @@ class _MyDashboardState extends State<MyDashboard> {
                       onTap: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) =>InvoiceForm()));
+                      },
+                    ),
+                    InkWell(
+                      child: Card(
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                            // Image.asset(
+                            //   'assets/track.jpg',
+                            //   scale: 5.4,
+                            // ),
+                            Image(
+                        image: AssetImage('assets/report.png'),
+                        width: 50, // set the desired width
+                        height: 50, // set the desired height
+                      ),
+                            SizedBox(
+                              height: 22,
+                            ),
+                            Text('Report',
+                                style: TextStyle(fontWeight: FontWeight.bold))
+                          ])),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) =>Displaydatabases()));
                       },
                     ),
                     InkWell(

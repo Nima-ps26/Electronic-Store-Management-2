@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pdfWidgets;
-
-
 
 class Invoicepageprint extends StatelessWidget {
-  String customername, itemname,name,email,business,business5;
+  String customername, itemname, name, email, business, business5;
   int quantity, amount;
-  Invoicepageprint(
-      {required this.customername,
-      required this.name,
-      required this.itemname,
-      required this.quantity,
-      required this.amount,
-      required this.email,
-      required this.business,
-      required this.business5,
-      });
+  Invoicepageprint({
+    required this.customername,
+    required this.name,
+    required this.itemname,
+    required this.quantity,
+    required this.amount,
+    required this.email,
+    required this.business,
+    required this.business5,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +23,12 @@ class Invoicepageprint extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 300,
+              height: 180,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    // Color(0xffFFB900),
-                    // Color(0xffFF9800),
-                     Color.fromARGB(255, 238, 15, 52),
-                    Color.fromARGB(255, 187, 12, 179),
-
+                    Colors.orangeAccent,
+                    Colors.orangeAccent,
                   ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -56,7 +49,6 @@ class Invoicepageprint extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    
                     Text(
                       'Hampankatta,mangalore',
                       style: TextStyle(
@@ -73,149 +65,193 @@ class Invoicepageprint extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Customer Name: $customername',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 251, 246, 246),
-                        fontSize: 18,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      'Authorised person: $name',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                    Text(
-                      'Email: $email',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                     SizedBox(height: 20),
-                    Text(
-                      'Supplier Name: $business',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                   
-                    Text(
-                      'Email: $business5',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
                   ],
                 ),
               ),
             ),
-            Center(
-              child: Container(
-                height: 350,
-                width: 250,
-                margin: const EdgeInsets.fromLTRB(10, 30, 20, 0),
-                padding: const EdgeInsets.fromLTRB(10, 30, 20, 20),
-                decoration: BoxDecoration(
-                  
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromARGB(255, 26, 7, 7).withOpacity(0.2),
-                      blurRadius: 5,
-                      offset: Offset(0, 5),
-                    ),
-                  ],
+            SizedBox(height: 20),
+
+            Container(
+                child: Align(
+              alignment: Alignment.topCenter,
+              child: Column(children: [
+                SizedBox(height: 20),
+                Text(
+                  'Customer Name: $customername',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Item name:',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      itemname,
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    //  Text(
-                    //   name,
-                    //   style: TextStyle(
-                    //     fontSize: 18,
-                    //   ),
-                    // ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Price:',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      '\$${amount.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Quantity:',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      '${quantity.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                     SizedBox(height: 20),
-                    Text(
-                      'Total:',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      '\$${(amount*quantity).toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Authorised person: $name',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
                 ),
+                Text(
+                  'Email: $email',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Supplier Name: $business',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Email: $business5',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
+                ),
+              ]),
+            )),
+
+            SizedBox(height: 60),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Table(
+                border: TableBorder.all(color: Colors.grey),
+                children: [
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Item Name',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Price',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Quantity',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(itemname),
+                        ),
+                      ),
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(amount.toString()),
+                        ),
+                      ),
+                      TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(quantity.toString()),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: 30),
-Text(
-              'Thank you for your purchase! Please visit us again!',
+             SizedBox(height: 10),
+                   Container(
+                child: Align(
+              alignment: Alignment.topRight,
+              child: Column(children: [
+                SizedBox(height: 20),
+                Text(
+                  'Total: ${(amount*quantity).toStringAsFixed(2)}',
+                  style: TextStyle(
+                    
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                
+               
+               
+              ]),
+            )
+            ),
+             SizedBox(height: 20),
+                   Container(
+                child: Align(
+              alignment: Alignment.topCenter,
+              child: Column(children: [
+                SizedBox(height: 20),
+               
+
+                  Text(
+                  'Total(with GST): ${(((amount*1.1)*quantity)).toStringAsFixed(2)}',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 13, 11, 11),
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                
+               
+                SizedBox(height: 20),
+               
+               
+              ]),
+            )),
+             SizedBox(height: 40),
+            Text(
+              'Thank you for your purchase. Please visit us again!',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.grey[700],
               ),
             ),
+             SizedBox(height: 30),
+            Text(
+              ' (Note: The seller is not responsible for any damage or loss incurred during shipping or delivery.)',
+              style: TextStyle(
+                fontSize: 13,
+                //fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+            ),
+
+           
           ],
+          
         ),
       ),
     );

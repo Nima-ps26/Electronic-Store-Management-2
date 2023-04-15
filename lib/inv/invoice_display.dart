@@ -81,8 +81,8 @@ class _DisplaydatabaseState extends State<Displaydatabases> {
                 // display total sales tile
                 return ListTile(
                   
-                  title: Text('Total Sales of the company (with profit):'),
-                  trailing: Text('\$${_totalSales.toStringAsFixed(2)}'),
+                  title: Text('Total Sales of the company (with profit):', style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 15,color: Colors.white)),
+                  trailing: Text('\$${_totalSales.toStringAsFixed(2)}',style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 15,color: Colors.white)),
                 );
               }
                else if (index == _invoices.length+1) {
@@ -90,15 +90,15 @@ class _DisplaydatabaseState extends State<Displaydatabases> {
                 // display total sales tile
                 return ListTile(
                   
-                  title: Text('Total Sales of the company'),
-                  trailing: Text('\$${_totalSales1.toStringAsFixed(2)}'),
+                  title: Text('Total Sales of the company',style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 15,color: Colors.white)),
+                  trailing: Text('\$${_totalSales1.toStringAsFixed(2)}',style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 15,color: Colors.white)),
                 );
               }
               else if (index == _invoices.length + 2) {
                 // display total items sold tile
                 return ListTile(
-                  title: Text('Total Items Sold:'),
-                  trailing: Text('$_totalItemsSold'),
+                  title: Text('Total Items Sold:',style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 15,color: Colors.white)),
+                  trailing: Text('$_totalItemsSold',style: TextStyle(fontFamily: 'OpenSans',fontWeight: FontWeight.bold,fontSize: 15,color: Colors.white)),
                 );
               }
               
@@ -137,7 +137,8 @@ class _DisplaydatabaseState extends State<Displaydatabases> {
                       subtitle: Padding(
                         padding: const EdgeInsets.all(2.0),
                         child: Text(
-                          '${invoice.customername}      ${invoice.itemname}     ${invoice.quantity}     ${invoice.amount}     ${invoice.quantity * invoice.amount}  ${invoice.amount * invoice.quantity + (20 * invoice.quantity)}'),
+                          
+                          '${invoice.customername}      ${invoice.itemname}     ${invoice.quantity}     ${invoice.amount}     ${invoice.quantity * invoice.amount}  ${invoice.amount * invoice.quantity + (20 * invoice.quantity)}',style: TextStyle(fontFamily: 'OpenSans',fontSize: 15,color: Colors.black)),
   ),
                   ),
                 ),
